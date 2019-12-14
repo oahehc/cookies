@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Cookies from "js-cookie";
 
-export const cookies = ["basic", "expire", "path"];
+export const cookies = ["basic", "expire", "path", "secure"];
 const cookieControl = [
   {
     key: "basic",
