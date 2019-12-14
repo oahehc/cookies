@@ -72,7 +72,7 @@ const index = () => {
 
   async function sendRequest() {
     try {
-      const res = await axios.get("/api/request");
+      const res = await axios.get("http:localhost:3000/api/request");
       console.log("res", res);
     } catch (e) {
       console.log("e", e);
