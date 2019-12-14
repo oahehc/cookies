@@ -2,10 +2,10 @@ export default async (req, res) => {
   res.setHeader("Content-Type", "application/json");
 
   try {
-    console.log("req.headers", req.headers);
+    const cookie = (req.headers && req.headers.cookie) || "";
 
     res.statusCode = 200;
-    res.json({ header: req.headers });
+    res.json({ cookie });
   } catch (err) {
     res.statusCode = 400;
     res.json({ err });

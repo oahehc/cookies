@@ -1,16 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Cookies from "js-cookie";
-import axios from "axios";
 
-export const cookies = [
-  "basic",
-  "expire",
-  "path",
-  "secure",
-  "SameSite-none",
-  "SameSite-lax",
-  "SameSite-strict"
-];
+export const cookies = ["basic", "expire", "path", "secure"];
 const cookieControl = [
   {
     key: "basic",
@@ -27,26 +18,10 @@ const cookieControl = [
     additional: {
       secure: true
     }
-  },
-  {
-    key: "SameSite-none",
-    additional: {}
-  },
-  {
-    key: "SameSite-lax",
-    additional: {
-      sameSite: "lax"
-    }
-  },
-  {
-    key: "SameSite-strict",
-    additional: {
-      sameSite: "strict"
-    }
   }
 ];
 
-const index = () => {
+const Index = () => {
   const [cookieData, setCookieData] = useState({});
 
   function loadCookies() {
@@ -70,24 +45,12 @@ const index = () => {
     loadCookies();
   }
 
-  async function sendRequest() {
-    try {
-      const res = await axios.get("http:localhost:3000/api/request");
-      console.log("res", res);
-    } catch (e) {
-      console.log("e", e);
-    }
-  }
-
   useEffect(() => {
     loadCookies();
   }, []);
 
   return (
     <>
-      <div>
-        <button onClick={sendRequest}>Request</button>
-      </div>
       <div>
         {cookieControl.map(({ key, additional }) => (
           <div key={key}>
@@ -109,4 +72,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default Index;
