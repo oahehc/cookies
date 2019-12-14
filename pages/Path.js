@@ -1,27 +1,17 @@
 import React, { useState, useEffect } from "react";
 import Cookies from "js-cookie";
+import { cookies } from "./index";
 
-export const cookies = ["basic", "expire", "path"];
 const cookieControl = [
   {
-    key: "basic",
-    additional: {}
-  },
-  {
-    key: "expire",
+    key: "path",
     additional: {
-      expires: 1
-    }
-  },
-  {
-    key: "secure",
-    additional: {
-      secure: true
+      path: "/path"
     }
   }
 ];
 
-const index = () => {
+const Path = () => {
   const [cookieData, setCookieData] = useState({});
 
   function loadCookies() {
@@ -40,8 +30,8 @@ const index = () => {
     Cookies.set(key, value, additional);
     loadCookies();
   }
-  function removeCookie(key) {
-    Cookies.remove(key);
+  function removeCookie(key, additional) {
+    Cookies.remove(key, additional);
     loadCookies();
   }
 
@@ -58,7 +48,7 @@ const index = () => {
             <button
               onClick={() => setCookie(key, `${key} value`, additional)}
             >{`Set ${key}`}</button>
-            <button onClick={() => removeCookie(key)}>{`Delete ${key}`}</button>
+            <button onClick={() => removeCookie(key, additional)}>{`Delete ${key}`}</button>
           </div>
         ))}
       </div>
@@ -72,4 +62,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default Path;
