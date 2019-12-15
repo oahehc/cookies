@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
+const API_PATH = ""; // https://cookies.oahehc.now.sh
+
 const SameSite = () => {
   const [cookie, setCookie] = useState("");
 
   async function getCookieRequest() {
     try {
-      const { data } = await axios.get("/api/get-cookie");
+      const { data } = await axios.get(`${API_PATH}/api/get-cookie`);
       if (data.cookie) setCookie(data.cookie);
     } catch (e) {
       console.log("e", e);
@@ -15,7 +17,7 @@ const SameSite = () => {
 
   async function setCookieRequest(type) {
     try {
-      await axios.get(`/api/set-cookie?type=${type}`);
+      await axios.get(`${API_PATH}/api/set-cookie?type=${type}`);
       await getCookieRequest();
     } catch (e) {
       console.log("e", e);
