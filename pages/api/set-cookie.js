@@ -8,25 +8,23 @@ const SetCookies = async (req, res) => {
   res.setHeader("Content-Type", "application/json");
   try {
     const { type } = req.query;
+    const { referer } = req.headers;
     switch (type) {
-      case "httpOnly":
-        res.setHeader("Set-Cookie", "httpOnly=httpOnly-value;  HttpOnly");
-        break;
       case "strict":
         res.setHeader(
           "Set-Cookie",
-          "SameSite-Strict=SameSite-Strict-value;  SameSite=Strict"
+          `SameSite-Strict=SameSite-Strict-${referer};  SameSite=Strict`
         );
         break;
       case "lax":
         res.setHeader(
           "Set-Cookie",
-          "SameSite-Lax=SameSite-Lax-value;  SameSite=Lax"
+          `SameSite-Lax=SameSite-Lax-${referer};  SameSite=Lax`
         );
         break;
       case "none":
       default:
-        res.setHeader("Set-Cookie", "SameSite-None=SameSite-None-value");
+        res.setHeader("Set-Cookie", `SameSite-None=SameSite-None-${referer}`);
         break;
     }
 
