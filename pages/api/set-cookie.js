@@ -3,6 +3,9 @@ export default async (req, res) => {
   try {
     const { type } = req.query;
     switch (type) {
+      case "httpOnly":
+        res.setHeader("Set-Cookie", "httpOnly=httpOnly-value;  HttpOnly");
+        break;
       case "strict":
         res.setHeader(
           "Set-Cookie",
