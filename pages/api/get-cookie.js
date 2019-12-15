@@ -1,4 +1,10 @@
-export default async (req, res) => {
+import Cors from "micro-cors";
+
+const cors = Cors({
+  allowedMethods: ["GET", "HEAD"]
+});
+
+const GetCookies = async (req, res) => {
   res.setHeader("Content-Type", "application/json");
 
   try {
@@ -11,3 +17,5 @@ export default async (req, res) => {
     res.json({ err });
   }
 };
+
+export default cors(GetCookies);
