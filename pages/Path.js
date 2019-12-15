@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Cookies from "js-cookie";
-import { cookies } from "./index";
 
+const cookies = ["basic", "expire", "secure", "path"];
 const cookieControl = [
   {
     key: "path",
@@ -48,7 +48,9 @@ const Path = () => {
             <button
               onClick={() => setCookie(key, `${key} value`, additional)}
             >{`Set ${key}`}</button>
-            <button onClick={() => removeCookie(key, additional)}>{`Delete ${key}`}</button>
+            <button
+              onClick={() => removeCookie(key, additional)}
+            >{`Delete ${key}`}</button>
           </div>
         ))}
       </div>
