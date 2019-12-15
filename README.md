@@ -45,4 +45,5 @@ or visit the online version - https://cookies.oahehc.now.sh
 
 - https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies
 - https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie
+- https://web.dev/samesite-cookies-explained
 - https://github.com/js-cookie/js-cookie
