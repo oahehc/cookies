@@ -44,14 +44,6 @@ const SameSite = () => {
           ))}
         </div>
       </div>
-      <div>
-        <h2>iframe</h2>
-        <iframe
-          src="https://cookies.oahehc.now.sh/same-site"
-          width="480px"
-          height="300px"
-        />
-      </div>
     </>
   );
 };
